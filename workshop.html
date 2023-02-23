@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Testing</title>
+  </head>
+  <body>
+    <h1>Open the console</h1>
+
+    <script>
+      // the function we're testing
+      function square(x) {
+        return x * x;
+      }
+
+      const result = square(6)
+      const expected = 36
+
+      function equal(arg1,arg2,msg){
+        if(arg1 == arg2){
+          const defaultMsg = `pass: Expected ${arg2} and received ${arg1}`
+          console.info(msg|| defaultMsg)
+        } else{
+          const defaultMsg = `Fail: Expected ${arg2} but received ${arg1} instead`
+          console.info(msg|| defaultMsg)
+        }
+      }
+
+
+
+      function test(name, testFunc){
+        console.group(name)
+        testFunc();
+        console.groupEnd();
+      }
+
+      test("correctly square integers", () =>{
+      let result = square(6)
+      let expected = 36
+      equal(result,expected,"square(6) should return 36")
+      })
+
+      // function notequal(arg1,arg2){
+      //   if(arg1 == arg2){
+      //     console.error("the two values are equal and should not be")
+      //   } else{
+      //     console.info("the two values are not equal")
+      //   }
+      // }
+
+      // equal(result,expected)
+      // notequal(square(3),10)
+
+    
+
+    </script>
+  </body>
+</html>
